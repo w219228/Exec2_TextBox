@@ -19,24 +19,25 @@ namespace Q3
 
 		private void generateButton_Click(object sender, EventArgs e)
 		{
+			
 			try
 			{
-				DateTime birth = InputBirth();
-				YearSpan();
+				DateTime birth =  InputBirth();
+				YearSpan(birth);
 			}
 			catch(Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
-			
 		}
 
-		private void YearSpan()
+		private void YearSpan(DateTime value)
 		{
-			DateTime birthyear = InputBirth();
-			int birth = (int)birthyear.Year;
+			//DateTime birthyear = InputBirth();
+			int birth = (int)value.Year;
 			int thisyear = DateTime.Today.Year;
 			int yeargap = thisyear - birth;
+
 			if (yeargap>=13)
 			{
 				MessageBox.Show("滿13歲");
